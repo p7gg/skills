@@ -1,0 +1,41 @@
+{
+  "skill_name": "legend-state",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a todo app using Legend-State where todos persist to localStorage. Each todo has an id, text, and completed status. Show a count of completed todos and include a button to clear all completed.",
+      "expected_output": "A React component with a Legend-State observable for todos, synced to localStorage via syncObservable or synced with persist config. Uses useValue for reactive counts, For component for rendering list, and a clear completed button.",
+      "files": [],
+      "expectations": [
+        "Uses Legend-State v3 React consumption patterns such as useValue or Memo instead of deprecated Synced/useSelector patterns",
+        "Includes local persistence configuration for the todo state",
+        "Renders the todo list with Legend-State-aware array rendering such as For or an equivalent observable-safe pattern",
+        "Includes a clear-completed action in the UI"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a React dashboard component that displays user stats (name, email, notification count) using Legend-State's fine-grained reactivity so the parent component only renders once. The notification count should update itself without re-rendering the whole dashboard.",
+      "expected_output": "A React component using Memo or fine-grained reactivity patterns (Memo, useValue) so that individual stat updates don't cause parent re-renders. Uses useObservable for local state.",
+      "files": [],
+      "expectations": [
+        "Uses fine-grained Legend-State rendering for the notification count such as Memo or an isolated reactive child",
+        "Uses modern v3 React consumption patterns instead of deprecated observer plus direct get as the primary pattern",
+        "Keeps the parent dashboard component free of direct notification-count reads so notification updates can avoid parent re-render",
+        "Shows name, email, and notification count in the output"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Set up a Legend-State observable that syncs user profiles from a REST API using syncedCrud. Include create, update, and delete operations with local persistence fallback.",
+      "expected_output": "An observable configured with syncedCrud plugin, including get/list, create, update, delete functions, and persist configuration for local fallback.",
+      "files": [],
+      "expectations": [
+        "Uses the current Legend-State package names and v3 sync APIs",
+        "Configures syncedCrud with list or get plus create, update, and delete operations",
+        "Includes local persistence configuration for the synced observable",
+        "Exports helper functions for creating, updating, deleting, and reading profiles"
+      ]
+    }
+  ]
+}
