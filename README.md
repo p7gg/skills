@@ -11,6 +11,10 @@ Each installable skill lives under `skills/<skill-name>/` so it can be added ind
 - `skills/legend-state/SKILL.md` - main skill instructions and trigger description
 - `skills/legend-state/references/` - supporting reference material for core API and sync/persistence patterns
 - `skills/legend-state/evals/` - eval prompts used to test the skill
+- `skills/konva-js/` - Konva.js canvas utilities skill (stage, shapes, filters, react-konva)
+- `skills/konva-js/SKILL.md` - Konva.js skill instructions and reference
+- `skills/konva-js/references/` - supporting reference material for shapes, animation, filters, and performance
+- `skills/konva-js/evals/` - eval prompts for Konva use-cases (react transformer, image filters, performance)
 
 ## Generated artifacts
 
@@ -18,6 +22,10 @@ These are intentionally ignored by `.gitignore`:
 
 - `*-workspace/` - eval runs, grading, benchmark output, and review HTML
 - `dist/` - packaged `.skill` files
+
+# Workspaces
+
+- `<skill-name>-workspace/iteration-<n>/` — contains per-eval run outputs for with_skill and without_skill runs, grading.json, and artifacts produced while iterating on a skill. Example: `konva-js-workspace/iteration-1/` was created for initial Konva evals.
 
 ## Packaging
 
@@ -31,6 +39,7 @@ Install an individual skill from this collection with:
 
 ```bash
 bunx skills add https://github.com/p7gg/skills --skill legend-state
+bunx skills add https://github.com/p7gg/skills --skill konva-js
 ```
 
 ## Adding a New Skill
